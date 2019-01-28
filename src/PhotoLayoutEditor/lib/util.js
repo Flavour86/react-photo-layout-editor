@@ -119,7 +119,7 @@ export function loadImage(src) {
 				xhr.open('get', url, true);
 				xhr.responseType = 'blob';
 				xhr.onload = function () {
-					if (this.status == 200) {
+					if (this.status === 200) {
 						var reader = new FileReader();
 						reader.readAsDataURL(this.response);
 						reader.onload = function (e) {
