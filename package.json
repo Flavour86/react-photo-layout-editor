@@ -1,0 +1,102 @@
+{
+  "_from": "react-photo-layout-editor",
+  "_id": "react-photo-layout-editor@1.1.13",
+  "_inBundle": false,
+  "_integrity": "sha1-AtoIJ29A4F0Zp3SmOUtMx1iY+9g=",
+  "_location": "/react-photo-layout-editor",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "react-photo-layout-editor",
+    "name": "react-photo-layout-editor",
+    "escapedName": "react-photo-layout-editor",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/react-photo-layout-editor/download/react-photo-layout-editor-1.1.13.tgz",
+  "_shasum": "02da08276f40e05d19a774a6394b4cc75898fbd8",
+  "_spec": "react-photo-layout-editor",
+  "_where": "E:\\XiGuaPlugin\\xgjPluginCode",
+  "author": {
+    "name": "Redgoose",
+    "email": "scripter@me.com",
+    "url": "http://redgoose.me"
+  },
+  "bugs": {
+    "url": "https://github.com/RedgooseDev/react-photo-layout-editor/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "jquery": "^3.3.1",
+    "prop-types": "^15.6.1",
+    "react-grid-layout": "^0.16.6",
+    "react-redux": "^5.0.7",
+    "react-simple-colorpicker": "github:RedgooseDev/react-simple-colorpicker",
+    "redux": "^4.0.0"
+  },
+  "deprecated": false,
+  "description": "Photo layout editor for react",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chunk-manifest-webpack-plugin": "^1.1.2",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.9.1",
+    "webpack-chunk-hash": "^0.6.0",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=7.8.0"
+  },
+  "homepage": "https://github.com/RedgooseDev/react-photo-layout-editor#readme",
+  "keywords": [
+    "Photo",
+    "layout",
+    "editor",
+    "redgoose",
+    "goose"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "react-photo-layout-editor",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedgooseDev/react-photo-layout-editor.git"
+  },
+  "scripts": {
+    "build": "webpack --mode production --config webpack.config.js",
+    "dev": "webpack-dev-server --hot --mode development --config webpack-dev.config.js --host 0.0.0.0 --port 4000",
+    "prebuild": "node_modules/.bin/babel ./src/PhotoLayoutEditor --out-dir ./lib",
+    "version-patch": "npm version patch"
+  },
+  "version": "1.1.13"
+}
