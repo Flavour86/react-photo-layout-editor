@@ -10,14 +10,14 @@ export default class Button extends React.Component {
 		const { props } = this;
 
 		return (
-			<div className={classNames('ple-toolbar__block', props.className)}>
-				<button type="button" title={props.title} onClick={props.onClick}>
-					<i className={classNames('ple-sp-ico', 'ple-abs', props.iconClass)}>{props.title}</i>
+				<button type="button" title={props.title} onClick={props.onClick} className={classNames(props.className, {
+					'ple-toolbar-item-disabled-button': props.disabled
+				})} disabled={props.disabled}>
+					{props.title}
+					{!!props.children && (
+						<div className="ple-toolbar__pop">{props.children}</div>
+					)}
 				</button>
-				{!!props.children && (
-					<div className="ple-toolbar__pop">{props.children}</div>
-				)}
-			</div>
 		);
 	}
 

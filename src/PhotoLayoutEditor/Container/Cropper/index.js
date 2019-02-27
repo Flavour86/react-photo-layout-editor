@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import $ from 'jquery/dist/jquery.slim';
+// import $ from 'jquery/dist/jquery.slim';
 import classNames from 'classnames';
 
 // components

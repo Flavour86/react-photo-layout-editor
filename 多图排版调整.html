@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多图排版调整</title>
+<style type="text/css">
+
+
+.ple-side .ple-sideNavigation button { width: 54px;font-size:  13px;color: #353535;}
+.ple-side .ple-sideNavigation button:first-child { width: 80px;}
+.ple-side__wrap-show {background: #fafafa;}
+.ple-side .ple-sideItems__wrap{ background:#fafafa;}
+
+.ple-toolbar__wrap {
+    height:  86px;
+    padding: 0;
+}
+
+.ple-toolbar-item button {
+    width:  64px;
+    height:  28px;
+    border: 1px solid #EAEAED;
+    border-radius:  4px;
+    line-height: 26px;
+    font-size:  13px;
+    color: #353535;
+    background: #fff;
+    margin-right: 7px;
+}
+
+.ple-toolbar-item h5 {
+    font-size:  13px;
+    color: #353535;
+    font-weight:  normal;
+    text-align:  center;
+    line-height: 1.4;
+    padding-bottom: 10px;
+}
+
+.ple-toolbar-item {
+    float:  left;
+    border-right: 1px solid #EEEEEE;
+    display:  block;
+    padding: 15px 10px 15px 20px;
+    height: 86px;
+}
+
+.ple-toolbar-item:last-child {
+    border-right: 0;
+}
+
+.ple-side .ple-sideNavigation {
+    top: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="ple-toolbar__wrap">
+    <div class="ple-toolbar-item ple-toolbar-canvas">
+    	<h5>画布设置</h5>
+      <button type="button">大小</button>
+		  <button type="button">边框</button>
+	</div>
+	<div class="ple-toolbar-item ple-toolbar-canvas">
+    	<h5>区块设置</h5>
+        <button type="button">添加</button>
+        <button type="button">全选</button>
+		<button type="button">复制</button>
+	    <button type="button">删除</button>
+        <button type="button">背景色</button>
+    </div>
+    <div class="ple-toolbar-item ple-toolbar-canvas">
+    	<h5>图片设置</h5>
+        <button type="button">缩放</button>
+		<button type="button">清除</button>
+	</div>
+</div>
+
+
+
+
+<nav class="ple-sideNavigation ple-side__navigation">
+	<div class="ple-sideNavigation__wrap">
+    	<button type="button" title="添加到左侧">添加到左侧</button>
+        <button type="button" title="全选/取消选择">全选</button>
+        <span title="上传图片" style="display: none;"><input type="file" accept="image/*" multiple=""><i class="ple-sp-ico ple-ico-upload ple-abs">upload images</i></span>
+        <button type="button" title="移除图片">删除</button>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import $ from 'jquery/dist/jquery.slim';
+// import $ from 'jquery/dist/jquery.slim';
 import classNames from 'classnames';
 
 import { util } from '../../lib';

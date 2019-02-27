@@ -171,27 +171,29 @@ class GridLayout extends React.Component {
 		return (
 			<div className="ple-grid__wrap" onClick={() => this._selectBlock()}
 				>
-			
+
 				<div className="ple-grid__body" style={{ width: `${bodyWidth}px` }}>
-					<ReactGridLayout
-						autoSize={true}
-						cols={setting.column}
-						rowHeight={setting.height}
-						width={bodyWidth}
-						margin={[setting.innerMargin, setting.innerMargin]}
-						containerPadding={[setting.outerMargin, setting.outerMargin]}
-						verticalCompact={!setting.freeMode}
-						onDragStart={() => this._updateBlocks('start')}
-						onDragStop={(layout, oldItem, newItem, placeholder, e, element) => this._updateBlocks('end', layout, element)}
-						onResizeStart={() => this._updateBlocks('start')}
-						onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => this._updateBlocks('end', layout, element)}
-						style={{
-							width: `100%`,
-							backgroundColor: setting.bgColor
-						}}
-						className="ple-grid">
-						{Object.keys(props.tree.body.grid).map((k) => this.renderItem(k))}
-					</ReactGridLayout>
+					{
+						!props.settingStatus ? <ReactGridLayout
+							autoSize={true}
+							cols={setting.column}
+							rowHeight={setting.height}
+							width={bodyWidth}
+							margin={[setting.innerMargin, setting.innerMargin]}
+							containerPadding={[setting.outerMargin, setting.outerMargin]}
+							verticalCompact={!setting.freeMode}
+							onDragStart={() => this._updateBlocks('start')}
+							onDragStop={(layout, oldItem, newItem, placeholder, e, element) => this._updateBlocks('end', layout, element)}
+							onResizeStart={() => this._updateBlocks('start')}
+							onResizeStop={(layout, oldItem, newItem, placeholder, e, element) => this._updateBlocks('end', layout, element)}
+							style={{
+								width: `100%`,
+								backgroundColor: setting.bgColor
+							}}
+							className="ple-grid">
+							{Object.keys(props.tree.body.grid).map((k) => this.renderItem(k))}
+						</ReactGridLayout> : null
+					}
 					{props.tree.cropper.visible ? ( <Cropper/> ) : null}
 				</div>
 			</div>

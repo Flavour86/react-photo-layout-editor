@@ -1,4 +1,4 @@
-import $ from 'jquery/dist/jquery.slim';
+// import $ from 'jquery/dist/jquery.slim';
 
 import * as libs from '../lib';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../Body/Toolbar/Button'
 
 
 export default class SideNavigation extends React.Component {
@@ -42,12 +43,8 @@ export default class SideNavigation extends React.Component {
 		return (
 			<nav className="ple-sideNavigation ple-side__navigation">
 				<div className="ple-sideNavigation__wrap">
-					<button type="button" title="添加到左侧" onClick={props.onAttach}>
-						<i className="ple-sp-ico ple-ico-reply ple-abs">Moving the image to grid block</i>
-					</button>
-					<button type="button" title="全选/取消选择" onClick={props.onToggleSelect}>
-						<i className="ple-sp-ico ple-ico-select ple-abs">Toggle all select</i>
-					</button>
+					<Button title="添加到左侧" onClick={props.onAttach} />
+					<Button title="全选" onClick={props.onToggleSelect} />
 					<span title="上传图片" key={state.timestamp}  	style={{ display: "none" }}>
 						<input
 							ref={(r) => { comps.inputFile = r; }}
@@ -56,11 +53,8 @@ export default class SideNavigation extends React.Component {
 							onChange={(e) => this.upload(e)} multiple />
 						<i className="ple-sp-ico ple-ico-upload ple-abs">upload images</i>
 					</span>
-					
-					
-					<button type="button" title="移除图片" onClick={props.onRemove}>
-						<i className="ple-sp-ico ple-ico-trash ple-abs">remove images</i>
-					</button>
+
+					<Button title="删除" onClick={props.onRemove} />
 				</div>
 			</nav>
 		);

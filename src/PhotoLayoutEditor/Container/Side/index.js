@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import $ from 'jquery/dist/jquery.slim';
+// import $ from 'jquery/dist/jquery.slim';
 
 import * as actions from '../../actions';
 
@@ -229,7 +229,6 @@ class Side extends React.Component {
 		const { props } = this;
 
 	    //console.log(props);
-
 		return (
 			<aside className="ple-side" data-filecount={Object.keys(props.tree.side.files).length}>
 				<div className={classNames(
@@ -237,7 +236,7 @@ class Side extends React.Component {
 					{ 'ple-side__wrap-show': props.tree.side.visible }
 				)}
 				>
-					{Object.keys(props.tree.side.files).length==0 && (
+					{!Object.keys(props.tree.side.files).length && (
 						<div>
 							<div className="downloads-icon"></div>
 <div style={{position:"absolute",top:"280px", width:"240px", textAlign: "center", color:"#999"}}>请上传图片</div>
