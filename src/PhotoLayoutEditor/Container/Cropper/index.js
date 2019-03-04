@@ -34,6 +34,7 @@ class Cropper extends React.Component {
 			top: this.$item.position().top,
 			left: this.$item.position().left
 		};
+		this.simulationMousewheel = this.simulationMousewheel.bind(this)
 	}
 
 	componentDidMount()
@@ -45,6 +46,25 @@ class Cropper extends React.Component {
 			this.imageMeta = res;
 			this.setState({ pending: false });
 		});
+
+		setTimeout(() => {
+			this.mask = document.querySelector('.ple-cropper__bg')
+			this.scrollContainer = document.querySelector('.ple-grid__wrap')
+			this.mask && this.scrollContainer && this.mask.addEventListener('mousewheel', this.simulationMousewheel)
+		}, 200)
+	}
+
+	simulationMousewheel (e) {
+		let scrollTop = this.scrollContainer.scrollTop
+		if (e.deltaY > 0) {
+			this.scrollContainer.scrollTop = scrollTop + 30
+		} else {
+			this.scrollContainer.scrollTop = scrollTop - 30 < 0 ? 0 : scrollTop - 30
+		}
+	}
+
+	componentWillUnmount() {
+		this.mask.removeEventListener('mousewheel', this.simulationMousewheel)
 	}
 
 	/**

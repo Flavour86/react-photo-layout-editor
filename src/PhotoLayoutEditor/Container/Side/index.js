@@ -85,14 +85,14 @@ class Side extends React.Component {
 
 		if (keys.length)
 		{
-			if (confirm('确定要删除这张图片吗?'))
+			if (confirm('确定要删除图片吗?'))
 			{
 				props.api.side.remove(keys);
 			}
 		}
 		else
 		{
-			if (!confirm('确认删除全部图片吗?')) return;
+			if (!confirm('确定要删除图片吗?')) return;
 			keys = props.api.side.getKeys('all');
 			props.api.side.remove(keys);
 		}

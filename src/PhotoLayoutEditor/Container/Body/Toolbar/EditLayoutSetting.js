@@ -12,9 +12,9 @@ export default class EditLayoutSetting extends React.Component {
 		defaultSetting: {
 			width: 100,
 			height: 100,
-			column: 5,
-			outerMargin: 10,
-			innerMargin: 10
+			column: 5
+			// outerMargin: 10,
+			// innerMargin: 10
 		},
 	};
 

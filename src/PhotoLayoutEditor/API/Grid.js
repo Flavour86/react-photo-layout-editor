@@ -1,5 +1,6 @@
 import * as actions from '../actions';
 import * as lib from '../lib';
+import {setting} from '../reducers/defaults'
 
 
 export default class Grid {
@@ -141,8 +142,9 @@ export default class Grid {
 	 * add blocks
 	 *
 	 * @param {Array} blocks
+	 * @param color rgba
 	 */
-	add(blocks=null)
+	add(blocks = null, color = setting.body.blockColor)
 	{
 		const { getState, dispatch } = this.store;
 		const state = getState();
@@ -154,7 +156,7 @@ export default class Grid {
 				w: 1,
 				h: 1
 			},
-			color: null,
+			color: color,
 			image: null
 		};
 

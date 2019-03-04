@@ -148,11 +148,7 @@ class Toolbar extends React.Component {
 	 */
 	submitEditSetting(state, key)
 	{
-
-		if (this.cacheCols !== state.column) {
-			this.props.changeSetting()
-			this.cacheCols = state.column
-		}
+		this.props.changeSetting()
 		// update setting
 		this.props.dispatch(actions.body.updateSetting(state));
 
@@ -160,6 +156,30 @@ class Toolbar extends React.Component {
 		libs.util.sleep(50).then(() => this.changeActive(key, false));
 
 		return false;
+	}
+
+	filterProps (source, keys) {
+		if (Object.prototype.toString.call(source) !== '[object Object]' || keys === undefined || keys === null) {
+			throw '参数不合法！'
+		}
+		let obj = {}
+		if (Object.prototype.toString.call(keys) === '[object String]' && source[keys]) {
+			obj[keys] = source[keys]
+		}
+
+		if (Object.prototype.toString.call(keys) === '[object Array]') {
+			keys.forEach(key => {
+				if (source[key]) {
+					obj[key] = source[key]
+				}
+			})
+		}
+
+		return obj
+	}
+
+	getImageBtnStatus (activeBlock = [], grid = {}) {
+		return !(activeBlock.length === 1 && grid[activeBlock[0]].image)
 	}
 
 	render()
@@ -196,8 +216,8 @@ class Toolbar extends React.Component {
 							title="大小">
 							<EditLayoutSetting
 								submit={(e) => this.submitEditSetting(e, 'setting')}
-								setting={props.tree.body.setting}
-								defaultSetting={props.setting.body.setting}/>
+								setting={this.filterProps(props.tree.body.setting, ['width', 'height', 'column'])}
+								defaultSetting={this.filterProps(props.setting.body.setting, ['width', 'height', 'column'])}/>
 						</Button>
 						<Button
 							className={classNames('ple-edit-setting ple-toolbar-item-button', {
@@ -215,8 +235,8 @@ class Toolbar extends React.Component {
 							title="边框">
 							<BorderSetting
 								submit={(e) => this.submitEditSetting(e, 'borderSetting')}
-								setting={props.tree.body.setting}
-								defaultSetting={props.setting.body.setting}/>
+								setting={this.filterProps(props.tree.body.setting, ['outerMargin', 'innerMargin', 'bgColor'])}
+								defaultSetting={this.filterProps(props.setting.body.setting, ['outerMargin', 'innerMargin', 'bgColor'])}/>
 						</Button>
 					</div>
 					<div className="ple-toolbar-item ple-toolbar-canvas">
@@ -250,8 +270,8 @@ class Toolbar extends React.Component {
 					</div>
 					<div className="ple-toolbar-item ple-toolbar-canvas" style={{ borderRight: 0}}>
 						<h5>图片设置</h5>
-						<Button title="缩放" className="ple-toolbar-item-button" disabled={!props.tree.body.activeBlock.length} onClick={() => props.api.cropper.open(props.tree.body.activeBlock[0])} />
-						<Button title="清除" className="ple-toolbar-item-button" disabled={!props.tree.body.activeBlock.length} onClick={() => props.api.grid.removeImages(props.tree.body.activeBlock)} />
+						<Button title="缩放" className="ple-toolbar-item-button" disabled={this.getImageBtnStatus(props.tree.body.activeBlock, props.tree.body.grid)} onClick={() => props.api.cropper.open(props.tree.body.activeBlock[0])} />
+						<Button title="清除" className="ple-toolbar-item-button" disabled={this.getImageBtnStatus(props.tree.body.activeBlock, props.tree.body.grid)} onClick={() => props.api.grid.removeImages(props.tree.body.activeBlock)} />
 					</div>
 
 					{/*{state.visible.shuffle && (*/}

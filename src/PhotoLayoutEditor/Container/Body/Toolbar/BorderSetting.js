@@ -11,9 +11,9 @@ export default class BorderSetting extends React.Component {
     submit: (e) => {},
     setting: null,
     defaultSetting: {
-      width: 100,
-      height: 100,
-      column: 5,
+      // width: 100,
+      // height: 100,
+      // column: 5,
       outerMargin: 10,
       innerMargin: 10,
       bgColor: 'rgba(255,255,255,1)',
